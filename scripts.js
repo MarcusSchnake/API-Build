@@ -1,4 +1,4 @@
-const baseURL='https://pokeapi.co/api/v2/';
+const baseURL='https://pokeapi.co/api/v2/pokedex/';
 let url;
 
 const pokemonName = document.querySelector('.name');
@@ -11,6 +11,18 @@ const nav = document.querySelector('nav');
 const section = document.querySelector('section');
 
 
+async function fetchPokemon(){
+    const response = await fetch(baseURL);
+    console.log(response);
+    const json = await response.json();
+    displayPokemon(json)
+}
+
+let displayPokemon = (data) => { 
+    let pokePies = data.results
+    console.log(pokePies)
+}
+fetchPokemon();
 
 
-url=`${url} + `
+
