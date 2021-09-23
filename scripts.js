@@ -1,37 +1,35 @@
 const baseURL = 'https://pokeapi.co/api/v2/pokemon/';
-let url;
-
-const pokemonName = document.querySelector('.name');
-const pokemonGeneration = document.querySelector('generation');
-const pokemonEffect = document.querySelector('effect');
-const submitBtn = document.querySelector('.submit');
-const nextBtn = document.querySelector('.next');
-const previousBtn = document.querySelector('.prev');
-const nav = document.querySelector('nav');
-const section = document.querySelector('section');
+const button = document.getElementById('catchButton');
+const cardOne = document.getElementById('card1');
+const pname = document.getElementById('pname');
+const pweight = document.getElementById('pweight');
+const pheight = document.getElementById('pheight');
+const pokemon = document.getElementById('pokemon');
 
 
+
+button.addEventListener('click', fetchPokemon)
+
+//FETCH
 async function fetchPokemon() {
-    [...Array(6)].map(async (el, idx) => {
-        const randNum = Math.floor(Math.random() * (101 - 2) + 2)
-        const response = await fetch(`${baseURL}${idx + randNum}`);
-        console.log(response);
-        const json = await response.json();
-        displayPokemon(json)
-        console.log(json)
-    })
-
-
+    const randNum = Math.floor(Math.random() * (151 - 2) + 2)
+    const response = await fetch(`${baseURL}${randNum}`);
+    console.log(response);
+    const json = await response.json();
+    displayPokemon(json)
+    console.log(json)
+    
 }
-
+   
+//DISPLAY
 const displayPokemon = (data) => {
-    let pokePies = data
-    console.log(pokePies?.sprites?.front_shiny)
-    console.log(data);
+    pname.innerHTML = data.name;
+    pweight.innerHTML = data.weight;
+    pheight.innerHTML = data.height;
+    pokemon.src = data?.sprites?.front_shiny;
+
+    
+    
+  
+    
 }
-fetchPokemon();
-
-
-
-
-

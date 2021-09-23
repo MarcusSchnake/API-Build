@@ -8,15 +8,31 @@
 
 }
 
-.button{
+.button-container{
     display:flex;
     justify-content: center;
-    align-items: center;
-    height: 200px;
-    border: 5px,radius 10px border-color blue;
+    height: auto;
+    border: 5px, border-color blue;
     background-color: firebrick;
+    margin: 10px;
+    padding: 8px;
+
 }
 
-.submit{
-    background-color: blue;
+#catchButton{
+    padding: 6px 8px;
+}
+
+
+.card {
+    margin: 10px auto;
+    width: 50%;
+    background-color: aliceblue;
+    padding: 16px;
+
+}
+
+#pokemon{
+    min-width: 350px;
+    min-height: 500px;
 }
